@@ -1,0 +1,68 @@
+<header>
+    <button
+      class="btn btn-outline-light border-1 m-3"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#sidebarMenu"
+      aria-controls="sidebarMenu">
+      &#9776;
+    </button>
+  
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="sidebarMenu"
+      aria-labelledby="sidebarMenuLabel">
+      
+      <div class="offcanvas-header">
+        <img src="ford.png" alt="Logo FORD" class="offcanvas-title img-fluid d-none d-sm-block">
+        <button
+          type="button"
+          class="btn-close text-reset"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close">
+        </button>
+      </div>
+  
+      <div class="offcanvas-body">
+          <ul class="nav flex-column">
+          <li class="nav-item mb-2">
+              <a class="nav-link text-success bg-light rounded p-2" aria-current="page" [routerLink]="['/home']">Home</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-success bg-light rounded p-2" type="submit" [routerLink]="['/dashboard']">Dashboard</a>
+          </li> 
+          </ul>
+      </div>
+    </div>
+  
+</header>
+
+<main>
+    <h1 class="text-center text-primary">Dashboard FORD</h1>
+
+
+    <div class="d-flex justify-content-center">
+        <div>
+            <h2>Veiculo</h2>
+        </div>
+
+        <div>
+            <h2>Total de vendas</h2>
+        </div>
+
+        <div>
+            <h2>
+                <h2>Conectados</h2>
+            </h2>
+        </div>
+
+        <div>
+            <h2>
+                Update Software
+            </h2>
+        </div>
+    </div>
+
+</main>
+
