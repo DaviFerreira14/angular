@@ -1,0 +1,36 @@
+<header class="d-flex">
+    <div class="w-25 p-3 ms-auto">
+        <img src="ford.png" alt="Logo da Ford" class="img-fluid" />
+    </div>
+</header>
+
+<main>
+    <div class="container"> 
+    <div class="row">
+        <div class="col-md-6 mb-2">
+            <img src="ranger.png" alt="Imagem da Ford Ranger" class="img-fluid d-none d-sm-block">
+        </div>
+
+        <div class="col-md-6">
+        <h2 class="text-success">Boas-vindas</h2>
+        <form class="form mt-4" required>
+            <div class="form-group">
+            <input class="form-control" placeholder="Insira seu usuario"/>
+            </div>
+
+            <div class="form-group">
+            <input class="form-control" type="password" placeholder="Insira sua senha"/>
+            </div>
+
+             <div class="form-check form-switch mb-3">
+                <input class="form-check-input" type="checkbox" id="autoLogin" role="switch"/>
+                <label class="form-check-label" for="autoLogin">Logar automaticamente</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" (click)="navegar()">Entrar</button>
+        </form>
+        </div>
+    </div>
+    </div>
+</main>
+

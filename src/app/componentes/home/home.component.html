@@ -1,0 +1,51 @@
+<header>
+  <button
+    class="btn btn-outline-light border-1 m-3"
+    type="button"
+    data-bs-toggle="offcanvas"
+    data-bs-target="#sidebarMenu"
+    aria-controls="sidebarMenu">
+    &#9776;
+  </button>
+
+  <div
+    class="offcanvas offcanvas-start"
+    tabindex="-1"
+    id="sidebarMenu"
+    aria-labelledby="sidebarMenuLabel">
+    
+    <div class="offcanvas-header">
+      <img src="ford.png" alt="Logo FORD" class="offcanvas-title img-fluid d-none d-sm-block">
+      <button
+        type="button"
+        class="btn-close text-reset"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close">
+      </button>
+    </div>
+
+    <div class="offcanvas-body">
+        <ul class="nav flex-column">
+        <li class="nav-item mb-2">
+            <a class="nav-link text-success bg-light rounded p-2" aria-current="page" [routerLink]="['/home']">Home</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link text-success bg-light rounded p-2" type="submit" [routerLink]="['/dashboard']">Dashboard</a>
+          </li>
+        </ul>
+    </div>
+  </div>
+
+  
+</header>
+
+<body class="bg-cover d-flex justify-content-center align-items-center min-vh-100">
+
+  <div class="card bg-white bg-opacity-75 p-4" style="max-width: 700px; width: 90%; height: 600px;">
+    <h6 class="text-muted">Sistema de dados FORD</h6>
+    <hr>
+    <p><a href="#" class="text-primary">Seja bem vindo(a)!</a></p>
+  </div>
+
+
+</body>

@@ -1,0 +1,22 @@
+.bg-cover {
+  background-image: url('../../../../public/ranger.png'); 
+  background-size: 77% auto; 
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+hr{
+    width: calc(100% + 3rem); 
+    margin-left: -1.5rem; 
+    margin-right: -1.5rem;
+}
+
+button{
+    background-color: white; 
+    color: rgb(6, 255, 39); 
+    border: 1px solid #ccc;
+}
+
+a{
+  cursor: pointer;
+}
