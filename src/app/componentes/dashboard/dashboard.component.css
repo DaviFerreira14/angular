@@ -1,14 +1,14 @@
-button{
-    background-color: white; 
-    color: rgb(6, 255, 39); 
-    border: 1px solid #ccc;
+button {
+  background-color: white;
+  color: rgb(6, 255, 39);
+  border: 1px solid #ccc;
 }
-  
-a{
+
+a {
   cursor: pointer;
 }
 
-hr{
+hr {
   width: calc(100%);
 }
 
@@ -18,4 +18,3 @@ hr{
   background-color: white;
   color: black;
 }
-
