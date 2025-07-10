@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule, } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -8,11 +8,11 @@ import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, FormsModule], 
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
-export default class LoginComponent {
+export default class LoginComponent implements OnInit {
   loginForm: FormGroup;
   errorMessage: string = '';
 
@@ -24,7 +24,17 @@ export default class LoginComponent {
     this.loginForm = this.fb.group({
       usuario: ['', Validators.required],
       senha: ['', Validators.required],
+      autoLogin: [false],
     });
+  }
+
+  ngOnInit(): void {
+    const token = localStorage.getItem('token');
+    const autoLogin = localStorage.getItem('autoLogin') === 'true';
+
+    if (token && autoLogin) {
+      this.router.navigate(['home']);
+    }
   }
 
   navegar() {
@@ -33,12 +43,19 @@ export default class LoginComponent {
       return;
     }
 
-    const { usuario, senha } = this.loginForm.value;
+    const { usuario, senha, autoLogin } = this.loginForm.value;
 
     this.authService.login(usuario, senha).subscribe({
       next: (response) => {
         localStorage.setItem('token', response.token);
-        localStorage.setItem('usuario',response.usuario)
+        localStorage.setItem('usuario', response.usuario);
+
+        if (autoLogin) {
+          localStorage.setItem('autoLogin', 'true');
+        } else {
+          localStorage.removeItem('autoLogin');
+        }
+
         this.router.navigate(['home']);
       },
       error: () => {
