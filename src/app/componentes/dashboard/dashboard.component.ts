@@ -10,7 +10,7 @@ import { VehicleService } from '../../service/vehicle.service';
   standalone: true,
   imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
   selectedCar: string = '';
@@ -18,13 +18,16 @@ export class DashboardComponent implements OnInit {
   vinDataList: any[] = [];
 
   vehicleVins: { [key: string]: string[] } = {
-    'Ranger': ['2FRHDUYS2Y63NHD22454', '2FRHDUYS2Y63NHD22654'],
-    'Mustang': ['2RFAASDY54E4HDU34874', '2RFAASDY54E4HDU34875'],
-    'Territory': ['2FRHDUYS2Y63NHD22455'],
-    'Bronco Sport': ['2FRHDUYS2Y63NHD22854']
+    Ranger: ['2FRHDUYS2Y63NHD22454', '2FRHDUYS2Y63NHD22654'],
+    Mustang: ['2RFAASDY54E4HDU34874', '2RFAASDY54E4HDU34875'],
+    Territory: ['2FRHDUYS2Y63NHD22455'],
+    'Bronco Sport': ['2FRHDUYS2Y63NHD22854'],
   };
 
-  constructor(private vehicleService: VehicleService, private http: HttpClient) {}
+  constructor(
+    private vehicleService: VehicleService,
+    private http: HttpClient,
+  ) {}
 
   ngOnInit(): void {
     this.vehicleService.getVehicles().subscribe({
@@ -35,7 +38,7 @@ export class DashboardComponent implements OnInit {
       },
       error: (err: any) => {
         console.error('Erro ao carregar os veículos:', err);
-      }
+      },
     });
   }
 
@@ -43,15 +46,15 @@ export class DashboardComponent implements OnInit {
     const vins = this.vehicleVins[vehicle] || [];
     this.vinDataList = [];
 
-    vins.forEach(vin => {
+    vins.forEach((vin) => {
       this.http.post('http://localhost:3001/', { vin }).subscribe({
         next: (data: any) => this.vinDataList.push({ vin, ...data }),
-        error: () => this.vinDataList.push({ vin, erro: true })
+        error: () => this.vinDataList.push({ vin, erro: true }),
       });
     });
   }
 
   get selectedCarData() {
-    return this.carros.find(carro => carro.vehicle === this.selectedCar);
+    return this.carros.find((carro) => carro.vehicle === this.selectedCar);
   }
 }
