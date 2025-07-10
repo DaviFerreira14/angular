@@ -1,4 +1,4 @@
-<header>
+<header class="d-flex justify-content-between align-items-center p-2 position-relative">
   <button
     class="btn btn-outline-light border-1 m-3"
     type="button"
@@ -25,17 +25,41 @@
     </div>
 
     <div class="offcanvas-body">
-        <ul class="nav flex-column">
+      <ul class="nav flex-column">
         <li class="nav-item mb-2">
-            <a class="nav-link text-success bg-light rounded p-2" aria-current="page" [routerLink]="['/home']">Home</a>
+          <a class="nav-link text-success bg-light rounded p-2" aria-current="page" [routerLink]="['/home']">Home</a>
         </li>
-          <li class="nav-item">
-            <a class="nav-link text-success bg-light rounded p-2" type="submit" [routerLink]="['/dashboard']">Dashboard</a>
-          </li>
-        </ul>
+        <li class="nav-item">
+          <a class="nav-link text-success bg-light rounded p-2" [routerLink]="['/dashboard']">Dashboard</a>
+        </li>
+      </ul>
     </div>
   </div>
+
+  <div class="dropdown me-3">
+    <button
+      class="btn btn-link p-0 border-0 bg-transparent d-flex align-items-center"
+      type="button"
+      id="userDropdown"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      <img
+        src="user.png"
+        alt="User"
+        class="rounded-circle"
+        style="width: 40px; height: 40px; object-fit: cover;"
+      />
+    </button>
+
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" style="min-width: 200px;">
+      <li>
+        <a class="dropdown-item text-success" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
 </header>
+
 
 <body class="bg-cover d-flex justify-content-center align-items-center min-vh-100">
 

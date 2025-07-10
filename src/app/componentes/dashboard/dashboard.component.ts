@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { VehicleService } from '../../service/vehicle.service';
@@ -27,6 +27,7 @@ export class DashboardComponent implements OnInit {
   constructor(
     private vehicleService: VehicleService,
     private http: HttpClient,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -56,5 +57,11 @@ export class DashboardComponent implements OnInit {
 
   get selectedCarData() {
     return this.carros.find((carro) => carro.vehicle === this.selectedCar);
+  }
+  
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    this.router.navigate(['/login']);
   }
 }

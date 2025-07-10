@@ -1,16 +1,24 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterModule],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent {
-  constructor(private route: Router) {}
-  
-  navegar() {
-    this.route.navigate(["dashboard"])
+  usuario: string | null = '';
+
+  constructor(private router: Router) {
+    this.usuario = localStorage.getItem('usuario')
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']); 
   }
 }

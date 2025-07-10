@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -8,11 +8,11 @@ import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule], 
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, FormsModule], 
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
-export class LoginComponent {
+export default class LoginComponent {
   loginForm: FormGroup;
   errorMessage: string = '';
 
@@ -38,6 +38,7 @@ export class LoginComponent {
     this.authService.login(usuario, senha).subscribe({
       next: (response) => {
         localStorage.setItem('token', response.token);
+        localStorage.setItem('usuario',response.usuario)
         this.router.navigate(['home']);
       },
       error: () => {
