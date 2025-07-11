@@ -1,0 +1,92 @@
+<header
+  class="d-flex justify-content-between align-items-center p-2 position-relative"
+>
+  <button
+    class="btn btn-outline-light m-3"
+    type="button"
+    data-bs-toggle="offcanvas"
+    data-bs-target="#sidebarMenu"
+    aria-controls="sidebarMenu"
+  >
+    &#9776;
+  </button>
+
+  <div
+    class="offcanvas offcanvas-start"
+    tabindex="-1"
+    id="sidebarMenu"
+    aria-labelledby="sidebarMenuLabel"
+  >
+    <div class="offcanvas-header">
+      <img
+        src="ford.png"
+        alt="Logo FORD"
+        class="offcanvas-title img-fluid w-50 d-none d-sm-block"
+      />
+      <button
+        type="button"
+        class="btn-close text-reset"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2">
+          <a
+            class="nav-link text-success"
+            aria-current="page"
+            [routerLink]="['/home']"
+            ><strong>Home</strong></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-success" [routerLink]="['/dashboard']"
+            ><strong>Dashboard</strong></a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dropdown me-3">
+    <button
+      class="btn btn-link p-0 border-0 bg-transparent d-flex align-items-center"
+      type="button"
+      id="userDropdown"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      <img
+        src="user.png"
+        alt="User"
+        class="rounded-circle"
+        style="width: 40px; height: 40px; object-fit: cover"
+      />
+    </button>
+
+    <ul
+      class="dropdown-menu dropdown-menu-end"
+      aria-labelledby="userDropdown"
+      style="min-width: 200px"
+    >
+      <li>
+        <a class="dropdown-item text-success" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<body
+  class="bg-cover d-flex justify-content-center align-items-center min-vh-100"
+>
+  <div
+    class="card bg-white bg-opacity-75 p-4"
+    style="max-width: 700px; width: 90%; height: 600px"
+  >
+    <h6 class="text-muted">Sistema de dados FORD</h6>
+    <hr />
+    <p class="text-primary">Seja bem vindo(a)!</p>
+  </div>
+</body>

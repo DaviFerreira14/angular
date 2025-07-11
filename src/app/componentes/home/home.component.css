@@ -1,0 +1,44 @@
+.offcanvas-body .nav-link {
+  background-color: #f0f0f0;
+  padding: 0.75rem 1rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+}
+
+.offcanvas-body .nav-link.text-success {
+  color: #28a745;
+}
+
+.offcanvas-body .nav-link.active {
+  background-color: #e9ecef;
+  font-weight: bold;
+}
+
+.bg-cover {
+  background-image: url("../../../../public/ranger.png");
+  background-size: 77% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+hr {
+  width: calc(100% + 3rem);
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+
+button {
+  background-color: white;
+  color: rgb(11, 173, 92);
+  border: none;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0.5rem 0.8rem;
+}
+
+a {
+  cursor: pointer;
+}
