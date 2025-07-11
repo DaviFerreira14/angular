@@ -63,4 +63,15 @@ export default class LoginComponent implements OnInit {
       },
     });
   }
+
+    togglePasswordVisibility(passwordInput: HTMLInputElement, event: MouseEvent): void {
+      const iconSpan = (event.currentTarget as HTMLElement).querySelector('.material-icons');
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text';
+          if (iconSpan) iconSpan.textContent = 'visibility_off';
+        } else {
+          passwordInput.type = 'password';
+          if (iconSpan) iconSpan.textContent = 'visibility';
+      }
+  }
 }
