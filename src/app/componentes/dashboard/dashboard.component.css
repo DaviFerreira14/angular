@@ -1,20 +1,87 @@
+.offcanvas-body .nav-link {
+  background-color: #f0f0f0;
+  padding: 0.75rem 1rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+}
+
+.offcanvas-body .nav-link.text-success {
+  color: #28a745;
+}
+
+.offcanvas-body .nav-link.active {
+  background-color: #e9ecef;
+  font-weight: bold;
+}
+
 button {
   background-color: white;
-  color: rgb(6, 255, 39);
-  border: 1px solid #ccc;
+  color: rgb(11, 173, 92);
+  border: none;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0.5rem 0.8rem;
 }
 
 a {
   cursor: pointer;
 }
 
+h1 {
+  color: #236cb4;
+}
+
 hr {
-  width: calc(100%);
+  width: calc(100% + 2rem);
+  margin-left: -1rem;
+  margin-right: -1rem;
+  border-color: #e0e0e0;
+  border-top-width: 1px;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+  opacity: 1;
 }
 
 .card {
-  width: 220px;
-  min-height: 200px;
+  width: 290px;
+  min-height: 210px;
   background-color: white;
+  color: black;
+  border-radius: 0;
+  border: 2px solid #383b3d;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.card-veiculo-borda-direita-fina {
+  border-right: 1px solid #686e74;
+}
+
+.card-update-software-borda-esquerda-fina {
+  border-left: 1px solid #343a40;
+}
+
+.fixed-bottom.bg-primary {
+  background-color: #094987 !important;
+}
+
+.table.table-primary {
+  --bs-table-bg: #094987;
+  --bs-table-striped-bg: #094987;
+  --bs-table-border-color: #094987;
+  --bs-table-color: white;
+}
+
+.table.table-primary thead {
+  background-color: #094987;
+  color: white;
+}
+
+.table-light {
+  background-color: white !important;
   color: black;
 }
