@@ -84,7 +84,7 @@
   <div class="row justify-content-center mt-4 gx-5">
     <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
       <div
-        class="card text-center shadow-sm p-3 mx-auto card-veiculo-borda-direita-fina"
+        class="card text-center shadow-lg p-3 mx-auto borda-direita"
       >
         <h6 class="text-muted">Veículo</h6>
         <hr />
@@ -101,7 +101,7 @@
     </div>
 
     <div class="col-sm-6 col-md-4 col-lg-3 mb-3" *ngIf="selectedCarData">
-      <div class="card text-center shadow-sm p-3 mx-auto">
+      <div class="card text-center shadow-lg p-3 mx-auto">
         <h6 class="text-muted">Total de Vendas</h6>
         <hr />
         <h4 class="text-primary mt-2">{{ selectedCarData.volumetotal }}</h4>
@@ -110,7 +110,7 @@
     </div>
 
     <div class="col-sm-6 col-md-4 col-lg-3 mb-3" *ngIf="selectedCarData">
-      <div class="card text-center shadow-sm p-3 mx-auto">
+      <div class="card text-center shadow-lg p-3 mx-auto">
         <h6 class="text-muted">Conectados</h6>
         <hr />
         <h4 class="text-primary mt-2">{{ selectedCarData.connected }}</h4>
@@ -120,9 +120,11 @@
 
     <div class="col-sm-6 col-md-4 col-lg-3 mb-3" *ngIf="selectedCarData">
       <div
-        class="card text-center shadow-sm p-3 mx-auto card-update-software-borda-esquerda-fina"
         class="card text-center shadow-lg p-3 mx-auto borda-esquerda"
       >
+        <h6 class="text-muted">Update Software</h6>
+        <hr />
+        <h4 class="text-primary mt-2">{{ selectedCarData.softwareUpdates }}</h4>
         <small class="text-muted">Unid.</small>
       </div>
     </div>

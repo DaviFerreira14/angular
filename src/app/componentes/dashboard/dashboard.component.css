@@ -49,24 +49,25 @@ hr {
 .card {
   width: 290px;
   min-height: 210px;
-  background-color: white;
+  background-color: #ffffff;
   color: black;
   border-radius: 0;
   border: 2px solid #383b3d;
   padding: 1rem;
   overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.card-veiculo-borda-direita-fina {
+.borda-direita {
   border-right: 1px solid #686e74;
 }
 
-.card-update-software-borda-esquerda-fina {
+.borda-esquerda {
   border-left: 1px solid #343a40;
 }
 
 .fixed-bottom.bg-primary {
-  background-color: #094987 !important;
+  background-color: #094987;
 }
 
 .table.table-primary {
