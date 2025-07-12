@@ -11,13 +11,14 @@ import { CommonModule } from '@angular/common';
 })
 
 export class HomeComponent {
-  usuario: string | null = '';
+  nome: string | null = '';
 
   constructor(private router: Router) {
-    this.usuario = localStorage.getItem('usuario')
+    this.nome = localStorage.getItem('nome') || 'Usuário';
   }
 
   logout() {
+    console.log('Resposta do login:', );
     localStorage.removeItem('token');
     this.router.navigate(['/login']); 
   }

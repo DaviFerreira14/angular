@@ -22,7 +22,7 @@ export default class LoginComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.loginForm = this.fb.group({
-      usuario: ['', Validators.required],
+      nome: ['', Validators.required],
       senha: ['', Validators.required],
       autoLogin: [false],
     });
@@ -43,12 +43,12 @@ export default class LoginComponent implements OnInit {
       return;
     }
 
-    const { usuario, senha, autoLogin } = this.loginForm.value;
+    const { nome, senha, autoLogin } = this.loginForm.value;
 
-    this.authService.login(usuario, senha).subscribe({
+    this.authService.login(nome, senha).subscribe({
       next: (response) => {
         localStorage.setItem('token', response.token);
-        localStorage.setItem('usuario', response.usuario);
+        localStorage.setItem('nome', response.nome);
 
         if (autoLogin) {
           localStorage.setItem('autoLogin', 'true');

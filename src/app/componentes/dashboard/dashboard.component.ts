@@ -23,6 +23,7 @@ export class DashboardComponent implements OnInit {
     Territory: ['2FRHDUYS2Y63NHD22455'],
     'Bronco Sport': ['2FRHDUYS2Y63NHD22854'],
   };
+nome: any;
 
   constructor(
     private vehicleService: VehicleService,
@@ -31,6 +32,7 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.nome = localStorage.getItem('nome');
     this.vehicleService.getVehicles().subscribe({
       next: (res: { vehicles: any[] }) => {
         this.carros = res.vehicles;

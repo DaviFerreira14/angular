@@ -68,14 +68,18 @@
       </button>
 
       <ul
-        class="dropdown-menu dropdown-menu-end"
-        aria-labelledby="userDropdown"
-        style="min-width: 200px"
-      >
-        <li>
-          <a class="dropdown-item text-success" (click)="logout()">Logout</a>
-        </li>
-      </ul>
+      class="dropdown-menu dropdown-menu-end"
+      aria-labelledby="userDropdown"
+      style="min-width: 200px"
+    >
+      <li class="dropdown-header text-success">
+        {{ nome }}
+      </li>
+      <li>
+      <li>
+        <a class="dropdown-item text-success" (click)="logout()">Logout</a>
+      </li>
+    </ul>
     </div>
   </header>
 
