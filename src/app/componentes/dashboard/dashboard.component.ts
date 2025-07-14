@@ -16,14 +16,9 @@ export class DashboardComponent implements OnInit {
   selectedCar: string = '';
   carros: any[] = [];
   vinDataList: any[] = [];
-
-  vehicleVins: { [key: string]: string[] } = {
-    Ranger: ['2FRHDUYS2Y63NHD22454'],
-    Mustang: ['2RFAASDY54E4HDU34874'],
-    Territory: ['2FRHDUYS2Y63NHD22455'],
-    'Bronco Sport': ['2FRHDUYS2Y63NHD22854'],
-  };
-nome: any;
+  vinCode: string = '';
+  currentVinData: any = null; 
+  nome: any;
 
   constructor(
     private vehicleService: VehicleService,
@@ -37,7 +32,6 @@ nome: any;
       next: (res: { vehicles: any[] }) => {
         this.carros = res.vehicles;
         this.selectedCar = this.carros[0]?.vehicle || '';
-        this.loadVinData(this.selectedCar);
       },
       error: (err: any) => {
         console.error('Erro ao carregar os veículos:', err);
@@ -45,15 +39,25 @@ nome: any;
     });
   }
 
-  loadVinData(vehicle: string): void {
-    const vins = this.vehicleVins[vehicle] || [];
-    this.vinDataList = [];
+  searchVinData(): void {
+    if (!this.vinCode.trim()) {
+      return;
+    }
 
-    vins.forEach((vin) => {
-      this.http.post('http://localhost:3001/', { vin }).subscribe({
-        next: (data: any) => this.vinDataList.push({ vin, ...data }),
-        error: () => this.vinDataList.push({ vin, erro: true }),
-      });
+    this.currentVinData = null;
+    console.log('Enviando VIN:', this.vinCode.trim()); 
+
+    this.http.post('http://localhost:3001/', { vin: this.vinCode.trim() }).subscribe({
+      next: (data: any) => {
+        console.log('Resposta recebida:', data); 
+        this.currentVinData = { vin: this.vinCode.trim(), ...data };
+      },
+      error: (err: any) => {
+        console.error('Erro ao buscar dados do VIN:', err);
+        console.error('Status:', err.status);
+        console.error('Erro completo:', err.error);
+        this.currentVinData = { vin: this.vinCode.trim(), erro: true };
+      },
     });
   }
 
@@ -63,7 +67,7 @@ nome: any;
   
   logout() {
     localStorage.removeItem('token');
-    localStorage.removeItem('username');
+    localStorage.removeItem('nome');
     this.router.navigate(['/login']);
   }
 }

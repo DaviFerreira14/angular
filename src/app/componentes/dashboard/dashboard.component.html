@@ -95,7 +95,6 @@
         <select
           class="form-select mt-2"
           [(ngModel)]="selectedCar"
-          (ngModelChange)="loadVinData($event)"
         >
           <option *ngFor="let carro of carros" [value]="carro.vehicle">
             {{ carro.vehicle }}
@@ -155,31 +154,48 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let vinData of vinDataList">
-          <td class="table-light">{{ vinData.vin }}</td>
-          <td class="table-light" *ngIf="!vinData.erro">
-            {{ vinData.odometro }}
-          </td>
-          <td class="table-light" *ngIf="!vinData.erro">
-            {{ vinData.nivelCombustivel }}%
-          </td>
-          <td class="table-light" *ngIf="!vinData.erro">
-            {{ vinData.status }}
-          </td>
-          <td class="table-light" *ngIf="!vinData.erro">{{ vinData.lat }}</td>
-          <td class="table-light" *ngIf="!vinData.erro">{{ vinData.long }}</td>
-
-          <ng-container *ngIf="vinData.erro">
-            <td class="text-danger" colspan="5">VIN não encontrado</td>
-          </ng-container>
-        </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="table-light">
+            <input
+              type="text"
+              class="form-control border-0 bg-transparent p-0 m-0"
+              [(ngModel)]="vinCode"
+              (keyup.enter)="searchVinData()"
+              placeholder="Digite o código VIN"
+              maxlength="25"
+              style="box-shadow: none; outline: none;"
+            />
+          </td>
+          <td class="table-light">
+            <span *ngIf="currentVinData && !currentVinData.erro">{{ currentVinData.odometro }}</span>
+            <span *ngIf="currentVinData?.erro" class="text-danger">-</span>
+          </td>
+          <td class="table-light">
+            <span *ngIf="currentVinData && !currentVinData.erro">{{ currentVinData.nivelCombustivel }}%</span>
+            <span *ngIf="currentVinData?.erro" class="text-danger">-</span>
+          </td>
+          <td class="table-light">
+            <span *ngIf="currentVinData && !currentVinData.erro">{{ currentVinData.status }}</span>
+            <span *ngIf="currentVinData?.erro" class="text-danger">-</span>
+          </td>
+          <td class="table-light">
+            <span *ngIf="currentVinData && !currentVinData.erro">{{ currentVinData.lat }}</span>
+            <span *ngIf="currentVinData?.erro" class="text-danger">-</span>
+          </td>
+          <td class="table-light">
+            <span *ngIf="currentVinData && !currentVinData.erro">{{ currentVinData.long }}</span>
+            <span *ngIf="currentVinData?.erro" class="text-danger">-</span>
+          </td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td class="p-2"></td>
+          <td class="p-2"></td>
+          <td class="p-2"></td>
+          <td class="p-2"></td>
+          <td class="p-2"></td>
+          <td class="p-2"></td>
         </tr>
       </tbody>
     </table>
